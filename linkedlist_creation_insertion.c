@@ -11,7 +11,7 @@ int main()
     struct node * next;
      };
 
-    struct node *new_node,*current,*start=NULL;
+    struct node *new_node,*current,*start=NULL,*prev,*next_node;
     int n;
     printf("enter the number of nodes needed:");
     scanf("%d",&n);
@@ -47,7 +47,11 @@ int main()
     printf("1.insert at begining\n");
     printf("2.insert at end\n");
     printf("3.insert at any position\n");
-    printf("4.exit\n");
+
+    printf("4.delete from begining\n");
+    printf("5.delete from end\n");
+     printf("6.delete from any position\n");
+    printf("7.exit\n");
     printf("what do you want to perform:\n");
 
     scanf("%d",&option);
@@ -146,6 +150,68 @@ case 3:
      break;
     }
 case 4:
+    {
+        current =start;
+        start=start->next;
+        free(current);
+        printf("linked list after deletion\n");
+        for(current=start;current!=NULL;current=current->next)
+        {
+        printf("%d ->",current->data);
+        }
+       printf("null\n");
+      break;
+
+    }
+case 5:
+    {
+        current=start;
+        while(current->next !=0)
+        {
+            prev=current;
+            current=current->next;
+        }
+        if(current==NULL)
+        {
+          free(current);
+        }
+        else{
+            prev->next=NULL;
+
+        }
+        free(current);
+         printf("linked list after deletion\n");
+        for(current=start;current!=NULL;current=current->next)
+        {
+        printf("%d ->",current->data);
+        }
+       printf("null\n");
+      break;
+
+    }
+case 6:
+    {
+       int i=1;
+       current=start;
+       printf("enter position to delete:\n");
+       scanf("%d",&pos);
+       while(i<pos-1)
+       {
+           current=current->next;
+           i++;
+       }
+       next_node=current->next;
+       current->next=next_node->next;
+       free(next_node);
+        printf("linked list after deletion\n");
+        for(current=start;current!=NULL;current=current->next)
+        {
+        printf("%d ->",current->data);
+        }
+       printf("null\n");
+      break;
+    }
+case 7:
     {
 
         printf("exited\n");
