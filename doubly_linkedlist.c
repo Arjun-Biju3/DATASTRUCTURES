@@ -150,13 +150,16 @@ void search()
 void delete_beg()
 {
 
-   current=start;
+
    if(start==NULL)
    {
        printf("list is empty\n");
    }
    else
     {
+      int abc=count();
+      printf("size:",abc);
+     current=start;
      start=start->next;
      start->prev=NULL;
      free(current);
@@ -164,16 +167,19 @@ void delete_beg()
 }
 void delete_end()
 {
+
 if(start==NULL)
    {
        printf("list is empty\n");
    }
    else
     {
+
     current=tail;
     tail->prev->next=NULL;
     tail=tail->prev;
     free(current);
+
    }
 }
 void delete_pos()
@@ -181,7 +187,7 @@ void delete_pos()
     int j=1;
     int pos;
     int co;
-    
+
     printf("enter position to delete:\n");
     scanf("%d",&pos);
     co=count();
@@ -228,7 +234,7 @@ void display()
 }
 int main()
 {
-    create();
+   create();
     display();
     int opt;
     int a=1;
