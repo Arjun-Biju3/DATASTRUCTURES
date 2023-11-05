@@ -9,31 +9,6 @@ struct node
 };
 struct node *start=NULL,*new_node,*current,*tail;
 int count=0;
-/*void create()
-{
- int n;
- printf("enter the number of nodes needed:\n");
- scanf("%d",&n);
- printf("Enter %d data:",n);
- for(int i=0;i<n;i++)
- {
- new_node=(struct node *)malloc(sizeof(struct node));
- scanf("%d",&new_node->data);
- new_node->prev=NULL;
- new_node->next=NULL;
- if(start==NULL)
- {
-     start=tail=new_node;
-     current=new_node;
- }
- else{
-    current->next=new_node;
-    new_node->prev=current;
-    current=tail=new_node;
-
- }
- }
-}*/
 void insrt_beginig()
 {
  new_node=(struct node *)malloc(sizeof(struct node));
@@ -75,14 +50,7 @@ void insrt_end()
    count++;
  }
 }
-/*int count()
-{     int count=0;
-      for(current=start;current!=NULL;current=current->next)
-    {
-        count++;
-    }
-    return count;
-}*/
+
 void insrt_at_position()
 {
   int i=1;
@@ -161,7 +129,7 @@ void delete_beg()
      start=start->next;
      free(current);
      count--;
-     display();
+    
     }
    else if(start==NULL)
    {
@@ -203,7 +171,7 @@ void delete_pos()
 
     if(start==NULL)
     {
-        printf("tere is nothing to delete\n");
+        printf("there is nothing to delete\n");
     }
     else if(pos==1)
     {
@@ -289,7 +257,7 @@ int main()
     case 4:
         {
             delete_beg();
-
+            display();
             break;
         }
     case 5:
