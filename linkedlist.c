@@ -173,13 +173,14 @@ case 5:
         }
         if(current==NULL)
         {
-          free(current);
+          printf("list is empty\n");
         }
         else{
             prev->next=NULL;
+            free(current);
 
         }
-        free(current);
+
          printf("linked list after deletion\n");
         for(current=start;current!=NULL;current=current->next)
         {
