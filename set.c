@@ -30,32 +30,7 @@ void differenceArrays(int array1[], int s1, int array2[], int s2, int diff[]) {
         diff[i] = (array1[i] && !array2[i]);
     }
 }
-int count(int array[],int s1)
-{
-    int counter=0;
- for(int i=0;i<s1;i++)
- {
-     if(array[i]==1)
-     {
-         counter++;
-     }
- }
- return counter;
-}
-void print(int array1[],int unio_n[],int s1,int s2,int res[])
-{
-    for(int i=0;i<s1;i++)
-    {
-        for(int j=0;j<s2;j++)
-        {
-          if(unio_n[j]==1)
-          {
-              res[j]=array1[j];
-          }
 
-        }
-    }
-}
 
 
 int main() {
@@ -98,10 +73,8 @@ int main() {
     unionArrays(bit1,s1,bit2,s1,unio_n);
     intersectionArrays(bit1,s1,bit2, s1,intersect);
     differenceArrays(bit1,s1,bit2,s1,diff);
-   int counter=count(unio_n,s1);
-     int res_union[counter];
-    print(array1,unio_n,s1,s1,res_union);
-
+   
+  
     // Printing the result
     printf("\nUniversal set:\n ");
     for (int i = 0; i < s1; i++) {
@@ -127,23 +100,45 @@ int main() {
                [i]);
     }
       printf("]");
-     printf("\nUnion:\n ");
+     printf("\nUnion Bitstring:\n ");
     for (int i = 0; i < s1; i++) {
         printf("%d ", unio_n[i]);
     }
-         printf("\nUnionnnnn:\n ");
-    for (int i = 0; i < counter; i++) {
-        printf("%d ", res_union[i]);
+          printf("\nUnion:\n ");
+    for (int i = 0; i < s1; i++) {
+       if(unio_n[i]==1)
+        printf("%d ", array1[i]);
     }
 
-     printf("\nIntersection:\n ");
+     printf("\nIntersection  bitstring:\n ");
     for (int i = 0; i < s1; i++) {
         printf("%d ", intersect[i]);
     }
-     printf("\nDifference:\n ");
+  printf("\n Intersection:\n");
+ for(int i=0;i<s1;i++)
+  {
+if(intersect[i]==1)
+
+   printf("%d",array1[i]);
+
+  }
+     printf("\nDifference Bitstring:\n ");
     for (int i = 0; i < s1; i++) {
         printf("%d ", diff[i]);
     }
+ printf("\nDifference:\n ");
+    for (int i = 0; i < s1; i++) {
+       if(diff[i]==1)
+        printf("%d ", array1[i]);
+    }
+
 
     return 0;
 }
+
+
+
+
+
+
+
